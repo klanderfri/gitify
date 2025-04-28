@@ -11,6 +11,7 @@ namespace GitifyTests
         [InlineData("gitify b \t \r\n   lägger in unittest ", "lagger-in-unittest")]
         [InlineData("gitify b Lägg in 🙂🫎 smileys", "lagg-in-smileys")]
         [InlineData("gitify b Lägg@ i€n $k£oµn#s%t{i}g[a]-tecken", "lagg-in-konstiga-tecken")]
+        [InlineData("gitify b Handle punctuation, like periods.", "handle-punctuation-like-periods")]
         public void BranchTest(string command, string expected)
         {
             var runResult = CommandHandler.RunInput(command);
