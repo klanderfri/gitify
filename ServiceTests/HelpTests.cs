@@ -10,7 +10,8 @@ namespace GitifyTests
         [InlineData("gitify help")]
         public void BranchTest(string command)
         {
-            var expected = "--- Help manual for program 'gitify' ---\r\n\r\n--- b, branch ---\r\nConverts a string to a GIT compatible branch name.\r\nExample: gitify branch Add unit tests\r\n\r\n--- h, help ---\r\nGives this manual page on how to use Gitify.\r\nExample: gitify help\r\n\r\n--- q, quit, exit ---\r\nQuits Gitify and returns to the parent program.\r\nExample: gitify quit";
+            var nl = Environment.NewLine;
+            var expected = $"--- Help manual for program 'gitify' ---{nl}{nl}--- b, branch ---{nl}Converts a string to a GIT compatible branch name.{nl}Example: gitify branch Add unit tests{nl}{nl}--- h, help ---{nl}Gives this manual page on how to use Gitify.{nl}Example: gitify help{nl}{nl}--- q, quit, exit ---{nl}Quits Gitify and returns to the parent program.{nl}Example: gitify quit";
             var runResult = CommandHandler.RunInput(command);
 
             Assert.Equal(RunCode.Continue, runResult.RunCode);
