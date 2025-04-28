@@ -1,4 +1,5 @@
 ﻿using Service.Commands;
+using Version = Service.Commands.Version;
 
 namespace Service
 {
@@ -34,7 +35,8 @@ namespace Service
             var commandHandlers = new List<ICommand>()
             {
                 new Branch(),
-                new Help()
+                new Help(),
+                new Version()
             };
 
             //Run the appropriate command.

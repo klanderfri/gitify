@@ -26,6 +26,10 @@ namespace Service.Commands
             message.AppendLine("Gives this manual page on how to use Gitify.");
             message.AppendLine("Example: gitify help");
             message.AppendLine();
+            message.AppendLine("--- v, version ---");
+            message.AppendLine("Gives the current verion number of Gitify.");
+            message.AppendLine("Example: gitify version");
+            message.AppendLine();
             message.AppendLine("--- q, quit, exit ---");
             message.AppendLine("Quits Gitify and returns to the parent program.");
             message.Append("Example: gitify quit");
