@@ -10,7 +10,7 @@ namespace ServiceTests
         [InlineData("gitify version")]
         public void VersionTest(string command)
         {
-            const string currentVersion = "0.1";
+            const string currentVersion = "0.2";
             var runResult = CommandHandler.RunInput(command);
 
             Assert.Equal(RunCode.Continue, runResult.RunCode);

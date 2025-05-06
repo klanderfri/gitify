@@ -2,7 +2,7 @@
 {
     public class Version : ICommand
     {
-        private const string VersionNumber = "0.1";
+        private const string VersionNumber = "0.2";
 
         public string ShortCommand => "v";
 
