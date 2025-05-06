@@ -16,12 +16,13 @@ namespace Service.Commands
         public string Run(string? instructions)
         {
             var message = new StringBuilder();
-            message.AppendLine("usage : gitify <command> [<args>]");
+            message.AppendLine("usage : gitify <command> [<flags>] [<args>]");
             message.AppendLine();
             message.AppendLine("These are the available Gitify commands:");
             message.AppendLine();
             message.AppendLine("   branch    Converts a string to a GIT compatible branch name.");
-            message.AppendLine("             gitify {b|branch} <branch phrase>");
+            message.AppendLine("             gitify {b|branch} [-c] <branch phrase>");
+            message.AppendLine("             [-c]: Copies the output to the clipboard.");
             message.AppendLine();
             message.AppendLine("   help      Gives this manual page on how to use Gitify.");
             message.AppendLine("             gitify {h|help}");
