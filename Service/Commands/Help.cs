@@ -16,23 +16,21 @@ namespace Service.Commands
         public string Run(string? instructions)
         {
             var message = new StringBuilder();
-            message.AppendLine("--- Help manual for program 'gitify' ---");
+            message.AppendLine("usage : gitify <command> [<args>]");
             message.AppendLine();
-            message.AppendLine("--- b, branch ---");
-            message.AppendLine("Converts a string to a GIT compatible branch name.");
-            message.AppendLine("Example: gitify branch Add unit tests");
+            message.AppendLine("These are the available Gitify commands:");
             message.AppendLine();
-            message.AppendLine("--- h, help ---");
-            message.AppendLine("Gives this manual page on how to use Gitify.");
-            message.AppendLine("Example: gitify help");
+            message.AppendLine("   branch    Converts a string to a GIT compatible branch name.");
+            message.AppendLine("             gitify {b|branch} <branch phrase>");
             message.AppendLine();
-            message.AppendLine("--- v, version ---");
-            message.AppendLine("Gives the current verion number of Gitify.");
-            message.AppendLine("Example: gitify version");
+            message.AppendLine("   help      Gives this manual page on how to use Gitify.");
+            message.AppendLine("             gitify {h|help}");
             message.AppendLine();
-            message.AppendLine("--- q, quit, exit, stop ---");
-            message.AppendLine("Quits Gitify and returns to the parent program.");
-            message.Append("Example: gitify quit");
+            message.AppendLine("   version   Gives the current version number of Gitify.");
+            message.AppendLine("             gitify {v|version}");
+            message.AppendLine();
+            message.AppendLine("   quit      Quits Gitify and returns to the parent program.");
+            message.AppendLine("             gitify {q|quit|exit|stop}");
 
             return message.ToString();
         }
