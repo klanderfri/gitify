@@ -1,7 +1,7 @@
 ﻿using Service;
 using Service.Enums;
 
-namespace GitifyTests
+namespace ServiceTests
 {
     public class InvalidCommandTests
     {

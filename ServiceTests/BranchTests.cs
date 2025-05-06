@@ -2,7 +2,7 @@
 using Service.Enums;
 using TextCopy;
 
-namespace GitifyTests
+namespace ServiceTests
 {
     public class BranchTests
     {
