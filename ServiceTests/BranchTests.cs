@@ -15,10 +15,16 @@ namespace GitifyTests
         [InlineData("gitify b Handle punctuation, like periods.", "handle-punctuation-like-periods")]
         public void BranchTest(string command, string expected)
         {
+            //Set a random string in the clipboard to make sure the command doesn't
+            //set anything to the clipboard, nor erases it.
+            var clipboardTextUntouchedByTest = Guid.NewGuid().ToString();
+            ClipboardService.SetText(clipboardTextUntouchedByTest);
+
             var runResult = CommandHandler.RunInput(command);
 
             Assert.Equal(RunCode.Continue, runResult.RunCode);
             Assert.Equal(expected, runResult.DataResult);
+            Assert.Equal(clipboardTextUntouchedByTest, ClipboardService.GetText());
         }
     }
 }
