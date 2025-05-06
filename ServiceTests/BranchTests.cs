@@ -1,5 +1,6 @@
 ﻿using Service;
 using Service.Enums;
+using TextCopy;
 
 namespace GitifyTests
 {
