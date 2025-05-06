@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using TextCopy;
 
 namespace Service.Commands
 {
@@ -20,7 +21,35 @@ namespace Service.Commands
                 return Messages.PrintInvalidInstructions(LongCommand, instructions);
             }
 
-            return GitifyBranch(instructions);
+            //Extract any flag.
+            var copyToClipboard = StartsWithFlag(ref instructions, "-c");
+
+            //The flag extraction might have rendered the instructions empty,
+            //so check it again.
+            if (string.IsNullOrWhiteSpace(instructions))
+            {
+                return Messages.PrintInvalidInstructions(LongCommand, instructions);
+            }
+
+            var branchName = GitifyBranch(instructions);
+
+            if (copyToClipboard)
+            {
+                ClipboardService.SetText(branchName);
+            }
+
+            return branchName;
+        }
+
+        private static bool StartsWithFlag(ref string instructions, string flag)
+        {
+            if (instructions.StartsWith(flag + " "))
+            {
+                instructions = instructions[(flag.Length + 1)..];
+                return true;
+            }
+
+            return false;
         }
 
         private static string GitifyBranch(string branchPhrase)
